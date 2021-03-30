@@ -1,7 +1,6 @@
 {
   "name": "reactjs",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -16,14 +15,29 @@
     "@babel/preset-env": "^7.13.10",
     "@babel/preset-react": "^7.12.13",
     "babel-loader": "^8.2.2",
+    "css-loader": "^5.2.0",
     "html-webpack-plugin": "^5.3.1",
+    "mini-css-extract-plugin": "^1.4.0",
     "prop-types": "^15.7.2",
+    "style-loader": "^2.0.0",
     "webpack": "^5.27.1",
     "webpack-cli": "^4.5.0",
     "webpack-dev-server": "^3.11.2"
   },
   "dependencies": {
+    "@material-ui/core": "^4.11.3",
+    "@material-ui/icons": "^4.11.2",
+    "classnames": "^2.2.6",
     "react": "^17.0.1",
     "react-dom": "^17.0.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zainkovskiy/reactjs.git"
+  },
+  "bugs": {
+    "url": "https://github.com/zainkovskiy/reactjs/issues"
+  },
+  "homepage": "https://github.com/zainkovskiy/reactjs#readme",
+  "description": ""
 }

@@ -1,0 +1,53 @@
+.message{
+    max-width: 20%;
+    border-radius: 15px;
+    padding: 10px;
+    /*word-break: break-all;*/
+    hyphens: auto;
+    position: relative;
+}
+
+.message-user{
+    background-color: white;
+    align-self: flex-start;
+}
+.message-user::after{
+    content: "";
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 5px 18px 5px 0;
+    border-color: transparent #fff transparent transparent;
+    position: absolute;
+    left: -10px;
+    bottom: 2px;
+}
+
+.message-bot{
+    background-color: #c6d9fd;
+    align-self: flex-end;
+}
+.message-bot::after{
+    content: "";
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 5px 0px 5px 18px;
+    border-color: transparent transparent transparent #c6d9fd;
+    position: absolute;
+    right: -10px;
+    bottom: 2px;
+}
+
+.message-text{
+    font-size: 24px;
+    font-family: sans-serif;
+}
+
+.message-author{
+    color: #777777;
+    font-size: 14px;
+    font-family: sans-serif;
+    font-weight: bold;
+    margin-bottom: 10px;
+}

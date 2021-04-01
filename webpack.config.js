@@ -16,6 +16,7 @@ module.exports = {
             components: path.resolve(__dirname, 'src', 'components'),
         }
     },
+    devtool: 'source-map',
     module: {
         rules: [
             {
@@ -42,5 +43,8 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: 'main.css',
         }),
-    ]
-}
+    ],
+    devServer: {
+        historyApiFallback: true,
+    }
+};

@@ -6,13 +6,14 @@ import {Header} from "components/Header";
 import {ChatList} from "components/ChatList";
 
 export class Layout extends Component{
+
   render() {
     return(
         <div className="layout">
-          <Header/>
+          <Header chatId={this.props.match.params.id}/>
           <ChatList/>
-          <MessageField />
+          <MessageField chat={this.props} />
         </div>
     )
   }
-};
+}

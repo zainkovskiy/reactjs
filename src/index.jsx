@@ -6,7 +6,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { routes } from './routes';
 
 ReactDOM.render(
-    <BrowserRouter>
+     <BrowserRouter>
       <Switch>
         {routes.map((route, idx)=> <Route key={idx} {...route} />)}
       </Switch>

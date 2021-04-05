@@ -1,0 +1,26 @@
+.profile{
+    width: 100%;
+    height: 100vh ;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #cacaca;
+    justify-content: center;
+}
+.profile-link{
+    text-align: center;
+    text-decoration: none;
+    padding: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    color: black;
+}
+.profile-link:hover{
+    color: white;
+}
+.profile-link:active{
+    color: black;
+}
+.profile-form{
+    padding: 50px;
+}

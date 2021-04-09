@@ -11,17 +11,9 @@ export class MessageField extends Component{
     this.messagesEnd.scrollIntoView({ behavior: "smooth" });
   }
 
-  // componentDidUpdate() {
-  //   if(this.messages.length){
-  //     const previewAuthor = this.messages[this.messages.length -1].author;
-  //     if (previewAuthor !== 'Bot'){
-  //       setTimeout(() => {
-  //         this.addMessage ({author: 'Bot', text: `Hello ${previewAuthor}!!!`});
-  //       },500);
-  //     }
-  //     this.scrollToBottom();
-  //   }
-  // }
+  componentDidUpdate() {
+      this.scrollToBottom();
+  }
 
     render() {
     const { messages, sendMessage } = this.props;

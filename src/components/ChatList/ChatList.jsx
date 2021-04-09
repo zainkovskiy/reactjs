@@ -13,6 +13,8 @@ import Avatar from '@material-ui/core/Avatar';
 import TextField from '@material-ui/core/TextField';
 import Fab from '@material-ui/core/Fab';
 import AddIcon from '@material-ui/icons/Add';
+import HighlightOffIcon from '@material-ui/icons/HighlightOff';
+import IconButton from '@material-ui/core/IconButton';
 
 export class ChatList extends Component{
   state = {
@@ -33,6 +35,16 @@ export class ChatList extends Component{
       newChat: event.target.value,
     })
   }
+  deleteChat = (id) => {
+    const { deleteChat } = this.props;
+    if (id){
+      deleteChat(id);
+    }
+  }
+  navigator = (id) => {
+    const { navigate } = this.props;
+    navigate(id)
+  }
 
   render() {
     const { chatList } = this.props;
@@ -42,14 +54,17 @@ export class ChatList extends Component{
           <List component="nav" aria-label="secondary mailbox folders">
             <ListSubheader>{'Чаты'}</ListSubheader>
             { chatList.map((chat, idx) =>
-                <Link to={chat.link} className="chatlist-link" key={idx}>
-                  <ListItem button>
+                <div key={idx} className='chatlist-link-wrap'>
+                  <ListItem className={chat.chatClass ? "chatlist-button-default" : "chatlist-button-change"} button onClick={ () => this.navigator(chat.id)}>
                     <ListItemAvatar>
                       <Avatar/>
                     </ListItemAvatar>
                     <ListItemText primary={chat.name}/>
                   </ListItem>
-                </Link>
+                <IconButton  color="secondary" aria-label="upload picture" component="span" onClick= {() => this.deleteChat(chat.id)}>
+                  <HighlightOffIcon/>
+                </IconButton>
+              </div>
             )}
             <div className="chatlist-add">
               <TextField className="chatlist-add-field" value={newChat} id="standard-basic" label="Создать чат" name="newChat" onChange={this.handleInputChange}/>

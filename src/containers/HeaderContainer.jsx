@@ -2,14 +2,9 @@ import React, { PureComponent } from 'react';
 import { connect } from "react-redux";
 
 import { Header } from 'components/Header';
-import { load } from 'actions/chats';
-import { login } from 'actions/profile';
 
 class HeaderContainer extends PureComponent{
   componentDidMount(){
-    const { loadChats, loadLogin } = this.props;
-    loadChats();
-    loadLogin();
   }
   render() {
     const { nameChat, loginName } = this.props;
@@ -27,10 +22,12 @@ function mapStateToProps(state, ownProps){
     nameChat = chat[numChat.chatId].chatName;
   }
 
-  const login = state.profile.get('entries').toList().toJS();
+  const login = state.profile.get('entries');
   let loginName = null;
-  if (login[0]){
-    loginName = login[0].login;
+  if (login === null) {
+    loginName = "unknown user";
+  } else {
+    loginName = login.get('login');
   }
 
   return{
@@ -41,8 +38,6 @@ function mapStateToProps(state, ownProps){
 
 function mapDispatchToProps(dispatch){
   return {
-    loadChats: () => dispatch(load()),
-    loadLogin: () => dispatch(login()),
   }
 }
 

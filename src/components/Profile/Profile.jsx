@@ -28,6 +28,7 @@ export class Profile extends Component{
   }
   render() {
     const { login } = this.state;
+    const { loginName } = this.props;
     return(
         <div className='profile'>
           <Link className='profile-link' to={'/'}>На главную</Link>
@@ -37,6 +38,7 @@ export class Profile extends Component{
               <DoneIcon />
             </Fab>
           </div>
+          <p>Current login:  { loginName } </p>
         </div>
     )
   }

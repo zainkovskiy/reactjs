@@ -10,16 +10,11 @@ const initialState = new Map({
 
 export const profileReducer = handleActions({
     [login]: (state, action) => {
-      return state.set('entries', fromJS({
-            '1': {login: "John"},
-          })
-      )
+      return state.set('entries', fromJS(action.payload))
     },
+
     [setLogin]: (state, action) => {
-      const login = action.payload.newLogin;
-      return state.set('entries', fromJS({
-                '1': {login: login},
-              })
+      return state.set('entries', fromJS(action.payload)
           )
     }
 }, initialState);

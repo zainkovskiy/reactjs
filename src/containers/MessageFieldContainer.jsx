@@ -2,16 +2,14 @@ import React, { PureComponent } from 'react';
 import { connect } from "react-redux";
 
 import { MessageField } from 'components/MessageField';
-import { load, send } from 'actions/chats'
+import { messageSend } from 'actions/chats'
 
 class MessageFieldContainer extends PureComponent {
   componentDidMount() {
-    const { loadChats } = this.props;
-    loadChats();
   }
   handleMessageSend = (message) =>{
-    const { sendMessage, chatId } = this.props;
-    sendMessage({
+    const { messageSend, chatId } = this.props;
+    messageSend({
       ...message,
       chatId
     });
@@ -44,8 +42,7 @@ function mapStateToProps(state, ownProps){
 
 function mapDispatchToProps(dispatch){
   return {
-    loadChats: () => dispatch(load()),
-    sendMessage: (message) => dispatch(send(message))
+    messageSend
   }
 }
 

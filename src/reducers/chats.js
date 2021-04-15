@@ -19,6 +19,12 @@ export const chatsReducer = handleActions({
 
   [send]: (state, action) => {
     const { chatId, ...message } = action.payload;
+    const prevState = state.get('entries').toJS();
+    const prevMessage = prevState[chatId].messages[prevState[chatId].messages.length -1];
+
+    if(JSON.stringify(prevMessage) === JSON.stringify(message)){
+      return state
+    }
     return state.mergeIn(['entries', chatId, 'messages'], message)
   },
   [addChat]: (state, action) => {

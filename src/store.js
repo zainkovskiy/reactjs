@@ -1,4 +1,4 @@
-import { createStore, applyMiddleware } from "redux";
+import { createStore, applyMiddleware, compose } from "redux";
 import { routerMiddleware } from 'connected-react-router';
 import { createBrowserHistory } from 'history';
 import { logger } from 'middlewares/logger';
@@ -8,5 +8,10 @@ import thunk from 'redux-thunk';
 
 export const history = createBrowserHistory();
 
-export const store = createStore(initReducer(history), applyMiddleware(logger, routerMiddleware(history), thunk));
+export const store = createStore(initReducer(history),
+    compose(
+        applyMiddleware(logger, bot, routerMiddleware(history), thunk),
+        window.__REDUX_DEVTOOLS_EXTENSION__ ? window.__REDUX_DEVTOOLS_EXTENSION__() : () => {},
+    ),
+)
 

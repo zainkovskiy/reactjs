@@ -2,9 +2,12 @@ import React, { PureComponent } from 'react';
 import { connect } from "react-redux";
 
 import { Header } from 'components/Header';
+import {listenProfile, login} from "actions/profile";
 
 class HeaderContainer extends PureComponent{
   componentDidMount(){
+    const { listenProfile } = this.props;
+    listenProfile();
   }
   render() {
     const { nameChat, loginName } = this.props;
@@ -38,6 +41,7 @@ function mapStateToProps(state, ownProps){
 
 function mapDispatchToProps(dispatch){
   return {
+    listenProfile: () => dispatch(listenProfile())
   }
 }
 

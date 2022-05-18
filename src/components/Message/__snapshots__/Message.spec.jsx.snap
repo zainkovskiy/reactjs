@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Message show message 1`] = `
+<div
+  className="message message-user"
+>
+  <div
+    className="message-author"
+  >
+    test1
+  </div>
+  <div
+    className="message-text"
+  >
+    test1
+  </div>
+</div>
+`;

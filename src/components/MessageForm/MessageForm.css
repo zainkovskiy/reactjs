@@ -1,0 +1,22 @@
+.message-form{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    background-color: #cacaca;
+    padding: 5px;
+}
+.form-text{
+    width: 100%;
+    background-color: white;
+}
+
+.form-author{
+    background-color: #e8f0fe;
+}
+
+.send-btn{
+    padding: 16px 16px !important;
+}
+.border{
+    border-radius: 4px;
+}
